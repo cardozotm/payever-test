@@ -20,7 +20,6 @@ const usecases_proxy_module_1 = require("../../usecases-proxy/usecases-proxy.mod
 const user_presenter_1 = require("./user.presenter");
 const response_decorator_1 = require("../../common/swagger/response.decorator");
 const user_dto_1 = require("./user.dto");
-const user_1 = require("../../../domain/model/user");
 let UserController = class UserController {
     constructor(createUserUsecasesProxy, deleteAvatarUsecasesProxy, getAvatarUsecasesProxy, getUserUsecasesProxy) {
         this.createUserUsecasesProxy = createUserUsecasesProxy;

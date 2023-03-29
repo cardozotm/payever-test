@@ -29,7 +29,7 @@ async function bootstrap() {
             extraModels: [response_interceptor_1.ResponseFormat],
             deepScanRoutes: true,
         });
-        swagger_1.SwaggerModule.setup('api', app, document);
+        swagger_1.SwaggerModule.setup('api-docs', app, document);
     }
     await app.listen(3000);
 }

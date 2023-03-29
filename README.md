@@ -1,88 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Application Test for Job Interview
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This application was developed as a test for a job interview using the NestJS framework.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Overview
 
-## Description
+The application is a simple RESTful API for managing users. It provides endpoints for creating, updating, and deleting users. It also has a RabbitMQ queue that sends a message every time a new user is created.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Technical Details
+#### Architecture
 
-## Installation
+The application was developed following the principles of clean architecture, separating the code into layers: infrastructure, domain, and use cases. The infrastructure layer is responsible for managing external tools such as RabbitMQ, and the database connection. The domain layer is where the business logic is implemented. The use case layer is the layer that orchestrates the application flow.
 
-```bash
-$ npm install
+### Design Patterns
+
+The application makes use of various design patterns such as Factory Method, Observer Pattern, and Dependency Injection.
+
+### Infrastructure
+
+The application was built using the NestJS framework, which is based on Node.js. The database used was MongoDB, and the connection was managed using the mongoose library. For messaging, RabbitMQ was used, and the connection was managed using the amqplib library.
+
+### Testing
+
+The application has unit tests for the use case layer using Jest. It also has integration tests for the API endpoints using Supertest.
+
+### API Documentation
+
+The application uses the @nestjs/swagger package to generate API documentation using the OpenAPI specification. The documentation is available at /api-docs.
+
+## Getting Started
+### Prerequisites
+Docker 
+
+### Installation
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/your-repo.git
+
 ```
 
-## Postgres
+2. Run Docker:
 
-Install docker and run the command:
+```
+docker-compose up -d
 
-```bash
-docker run --name clean-architecture-db -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
-run migration
+### Usage
 
-```bash
-npm run typeorm:generate:win -n init
-npm run typeorm:run:win
+3. The API is now available at http://localhost:3000.
+
+4. To view the API documentation, go to http://localhost:3000/api-docs.
+
+### Testing
+
+Run the integration tests:
+```
+npm run test:e2e
+
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Conclusion
+This application is a simple example of how to build a RESTful API using the principles of clean architecture, design patterns, and modern web technologies. It demonstrates the use of various tools and libraries that are commonly used in Node.js development.

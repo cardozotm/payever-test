@@ -9,7 +9,6 @@ import { CreateUserUseCases } from '../../../usecases/user/createUser.usecases';
 import { DeleteAvatarUseCases } from '../../../usecases/user/deleteAvatar.usecases';
 import { GetAvatarUseCases } from '../../../usecases/user/getAvatar.usecases';
 import { AddUserDto } from './user.dto';
-import { UserM } from 'src/domain/model/user';
 
 @Controller()
 @ApiTags('users')

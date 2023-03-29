@@ -40,7 +40,7 @@ async function bootstrap() {
       deepScanRoutes: true,
     });
 
-    SwaggerModule.setup('api', app, document);
+    SwaggerModule.setup('api-docs', app, document);
   }
 
   await app.listen(3000);
