@@ -17,7 +17,9 @@ export class CreateUserUseCases implements Observer {
   public async execute(userData: UserM): Promise<User> {
     try {
       const result = await this.userRepository.create(userData);
+
       this.logger.log('createUserUseCases execute', 'New user have been inserted');
+      
       this.rabbitMQService.publish(result);
       return result;
     } catch (error) {

@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . ./
 
+RUN mkdir -p /usr/share/nginx/html/api-docs && chmod -R 777 /usr/share/nginx/html/api-docs
+
 RUN npm install
 
 RUN npm run build

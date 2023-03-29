@@ -1,25 +1,40 @@
 version: '3'
 services:
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - '3000:3000'
-  #   environment:
-  #     - NODE_ENV=production
-  #   depends_on:
-  #     - mongodb
-  #     - rabbitmq
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      SERVER_PORT: '3000'
+      DATABASE_URI: 'mongodb://mongodb:27017/'
+      REGRES_API_URL: 'https://api.regres.in'
+      RABBITMQ_URL: 'amqp://rabbitmq:5672/'
+      RABBITMQ_EXCHANGE: user-exchange
+    depends_on:
+      - mongodb
+      - rabbitmq
+    networks:
+      - internal
   mongodb:
     image: mongo:4.4
     ports:
       - '27017:27017'
     volumes:
       - mongodb_data:/data/db
+    networks:
+      - internal
   rabbitmq:
     image: rabbitmq:3.7
     ports:
       - '5672:5672'
+    networks:
+      - internal
 volumes:
   mongodb_data:
+
+networks:
+  internal:
+    driver: bridge

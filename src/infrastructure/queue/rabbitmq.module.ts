@@ -1,7 +1,7 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { EmailModule } from '../email/email.module';
 import { EmailObserver } from '../email/email.observer';
-import { RabbitMQService } from './rabbitMq.service';
+import { RabbitMQService } from '../queue/rabbitmq.service';
 
 @Module({
   imports: [EmailModule],
