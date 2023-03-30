@@ -29,7 +29,8 @@ The application uses the @nestjs/swagger package to generate API documentation u
 
 ## Getting Started
 ### Prerequisites
-Docker 
+Docker 20.10.x
+docker-compose 1.29.x
 
 ### Installation
 1. Clone the repository:
