@@ -1,5 +1,4 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { ILogger } from '../../domain/logger/logger.interface';
 import { IAvatarRepository } from '../../domain/repositories/avatarRepository.interface';
 import { UserM } from '../../domain/model/user';
 import axios from 'axios';

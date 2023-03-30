@@ -14,20 +14,15 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  // Filter
   app.useGlobalFilters(new AllExceptionFilter(new LoggerService()));
 
-  // pipes
   app.useGlobalPipes(new ValidationPipe());
 
-  // interceptors
   app.useGlobalInterceptors(new LoggingInterceptor(new LoggerService()));
   app.useGlobalInterceptors(new ResponseInterceptor());
 
-  // base routing
   app.setGlobalPrefix('api');
 
-  // swagger config
   if (env !== 'production') {
     const config = new DocumentBuilder()
       .addBearerAuth()
